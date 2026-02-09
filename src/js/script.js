@@ -76,17 +76,20 @@ function renderHistory() {
   }
 
   const recentItems = ideaHistory.slice(-10).reverse();
-  historyList.innerHTML = recentItems.map((item, index) => `
+  historyList.innerHTML = recentItems.map((item, index) => {
+    const originalIndex = ideaHistory.length - 10 + index;
+    return `
     <div class="list-group-item">
       <div class="d-flex justify-content-between align-items-start">
         <div>
           <strong>${escapeHtml(item.topic)}</strong>
-          <small class="text-muted d-block">${item.date}</small>
+          <small class="text-muted d-block">${item.date} ${item.time || ''}</small>
         </div>
-        <button class="btn btn-sm btn-outline-primary py-0" onclick="loadHistoryItem(${ideaHistory.length - 10 + index})">Lihat</button>
+        <button class="btn btn-sm btn-outline-primary py-0" onclick="loadHistoryItem(${item.id})">Lihat</button>
       </div>
     </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 function saveToHistory(topic, output) {
@@ -95,15 +98,16 @@ function saveToHistory(topic, output) {
     topic: topic,
     output: output,
     date: new Date().toDateString(),
-    time: new Date().toLocaleTimeString('id-ID')
+    time: new Date().toLocaleTimeString('id-ID'),
+    savedAt: new Date().toISOString()
   };
   ideaHistory.push(item);
   localStorage.setItem('ideaHistory', JSON.stringify(ideaHistory));
 }
 
-function loadHistoryItem(index) {
-  if (index >= 0 && index < ideaHistory.length) {
-    const item = ideaHistory[index];
+function loadHistoryItem(id) {
+  const item = ideaHistory.find(i => i.id === id);
+  if (item) {
     document.getElementById('topic').value = item.topic;
     document.getElementById('output').value = item.output;
   }
