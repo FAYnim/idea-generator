@@ -9,8 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
+    "@google/genai": "^1.40.0",
     "axios": "^1.13.4",
     "dotenv": "^17.2.3"
   }
