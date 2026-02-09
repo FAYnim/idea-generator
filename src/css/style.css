@@ -14,3 +14,16 @@ body {
 textarea {
   resize: none;
 }
+.navbar {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+#historyList .list-group-item {
+  border-left: none;
+  border-right: none;
+}
+#historyList .list-group-item:first-child {
+  border-top: none;
+}
+.list-group-item {
+  font-size: 0.875rem;
+}
