@@ -60,20 +60,8 @@ async function mulaiProgram() {
 		prompt.replace("<niche>", niche);
 		
 		try {
-			// With Axios
-			/*const response = await axios.post(URL, {
-				contents: [{
-					parts: [{ text: `Berikan 3 ide kreatif dan singkat tentang: ${topik}`}]
-				}]
-			});
-			
-			const hasil = response.data.candidates[0].content.parts[0].text;
-			console.log('Saran untukmu:\n');
-			console.log(hasil);*/
-			
-			// With GoogleGenAI
 			const response = await ai.models.generateContent({
-				model: "gemini-2.5-flash",
+				model: "gemini-3-flash-preview",
 				contents: `Berikan 10 ide konten pada niche: ${niche}`,
 				config: {
 					systemInstruction: instruction,
@@ -84,8 +72,6 @@ async function mulaiProgram() {
 		} catch(error) {
 			console.log(error.message);
 		}
-		
-		//console.log('Wah, topik ' + topik + ' itu menarik! Tunggu sebentar ya...');
 		
 		rl.close();
 }
