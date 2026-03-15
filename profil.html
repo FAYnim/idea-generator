@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - Idea Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+  <div class="sidebar d-none d-md-block">
+    <div class="sidebar-brand">
+      <a href="index.html" class="text-white text-decoration-none fw-bold">Idea Generator</a>
+    </div>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fa-solid fa-table-columns me-2"></i> Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="riwayat.html">
+          <i class="fa-solid fa-clock-rotate-left me-2"></i> Riwayat
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="profil.html">
+          <i class="fa-solid fa-user me-2"></i> Profil
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="pengaturan.html">
+          <i class="fa-solid fa-gear me-2"></i> Pengaturan
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <nav class="navbar navbar-expand-md navbar-light bg-white d-md-none">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">Idea Generator</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mobileNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="riwayat.html">Riwayat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="profil.html">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pengaturan.html">Pengaturan</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid p-4">
+      <div class="row mb-4">
+        <div class="col-12">
+          <h4 class="mb-1">Profil</h4>
+          <p class="text-muted mb-0">Atur profil Threads Anda untuk menghasilkan ide yang lebih relevan</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <!-- Username Threads -->
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Username Threads</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-0">
+                <label for="profileUsername" class="form-label">Username</label>
+                <div class="input-group">
+                  <span class="input-group-text">@</span>
+                  <input type="text" class="form-control" id="profileUsername" placeholder="username_threads">
+                </div>
+                <div class="form-text">Masukkan username Threads Anda tanpa simbol @</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio -->
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Bio</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-0">
+                <label for="profileBio" class="form-label">Bio / Deskripsi Diri</label>
+                <textarea class="form-control" id="profileBio" rows="3" maxlength="150" placeholder="Ceritakan tentang diri Anda secara singkat..."></textarea>
+                <div class="d-flex justify-content-between mt-1">
+                  <span class="form-text">Deskripsi singkat tentang diri Anda</span>
+                  <span class="form-text" id="bioCounter">0/150</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Niche -->
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Niche</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-0">
+                <label for="nicheInput" class="form-label">Niche Konten</label>
+                <div class="tag-input-wrapper" id="nicheTagWrapper">
+                  <div class="tag-list" id="nicheTagList"></div>
+                  <input type="text" class="tag-input" id="nicheInput" placeholder="Ketik niche lalu tekan Enter...">
+                </div>
+                <div class="form-text">Tekan <kbd>Enter</kbd> atau <kbd>,</kbd> untuk menambahkan niche. Klik <strong>x</strong> untuk menghapus.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Positioning -->
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Positioning</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-0">
+                <label for="profilePositioning" class="form-label">Positioning Statement</label>
+                <textarea class="form-control" id="profilePositioning" rows="3" placeholder="Contoh: Saya membantu startup founders untuk memahami teknologi AI melalui konten edukatif yang mudah dipahami"></textarea>
+                <div class="form-text">Jelaskan siapa Anda, siapa target audience, dan apa value yang Anda berikan</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tone of Voice -->
+          <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Tone of Voice</h5>
+            </div>
+            <div class="card-body">
+              <p class="form-text mb-3 mt-0">Pilih satu atau lebih tone yang mencerminkan gaya komunikasi Anda</p>
+              <div class="row g-2">
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Santai" id="toneSantai">
+                    <label class="form-check-label" for="toneSantai">Santai</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Profesional" id="toneProfesional">
+                    <label class="form-check-label" for="toneProfesional">Profesional</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Humoris" id="toneHumoris">
+                    <label class="form-check-label" for="toneHumoris">Humoris</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Inspiratif" id="toneInspiratif">
+                    <label class="form-check-label" for="toneInspiratif">Inspiratif</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Edukatif" id="toneEdukatif">
+                    <label class="form-check-label" for="toneEdukatif">Edukatif</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Provokatif" id="toneProvokatif">
+                    <label class="form-check-label" for="toneProvokatif">Provokatif</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Storytelling" id="toneStorytelling">
+                    <label class="form-check-label" for="toneStorytelling">Storytelling</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Motivatif" id="toneMotivatif">
+                    <label class="form-check-label" for="toneMotivatif">Motivatif</label>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input tone-checkbox" type="checkbox" value="Kontroversial" id="toneKontroversial">
+                    <label class="form-check-label" for="toneKontroversial">Kontroversial</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar: Preview Card -->
+        <div class="col-lg-4">
+          <div class="card" style="position: sticky; top: 1rem;">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Preview Profil</h5>
+            </div>
+            <div class="card-body">
+              <div class="text-center mb-3">
+                <div class="profile-avatar mx-auto mb-2">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <h6 class="mb-0" id="previewUsername">@username</h6>
+              </div>
+              <hr>
+              <div class="mb-3">
+                <small class="text-muted d-block mb-1"><strong>Bio</strong></small>
+                <p class="mb-0 small" id="previewBio"><em class="text-muted">Belum diisi</em></p>
+              </div>
+              <div class="mb-3">
+                <small class="text-muted d-block mb-1"><strong>Niche</strong></small>
+                <div id="previewNiche"><em class="text-muted small">Belum diisi</em></div>
+              </div>
+              <div class="mb-3">
+                <small class="text-muted d-block mb-1"><strong>Positioning</strong></small>
+                <p class="mb-0 small" id="previewPositioning"><em class="text-muted">Belum diisi</em></p>
+              </div>
+              <div>
+                <small class="text-muted d-block mb-1"><strong>Tone</strong></small>
+                <div id="previewTone"><em class="text-muted small">Belum diisi</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-end gap-2">
+          <button class="btn btn-outline-secondary" id="btnResetProfile">Reset Profil</button>
+          <button class="btn btn-primary" id="btnSaveProfile">Simpan Profil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="src/js/profil.js"></script>
+</body>
+</html>
